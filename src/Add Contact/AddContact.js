@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from "react";
-import "AddContact.css"  
+import "../Add Contact/AddContact.css";  
     const AddContact = ({addContactHandler}) => {
    const [contact, setContact] = useState({ name: "", email: ""});
    

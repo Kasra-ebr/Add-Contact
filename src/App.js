@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import {useState} from "react";
-import AddContact from "./AddContact";
+import AddContact from "./Add Contact/AddContact.js";
 import ContactList from "./ContactList";
 import "./App.css"
 

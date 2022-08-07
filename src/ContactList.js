@@ -1,16 +1,16 @@
 import React from 'react';
-
+import "./ContactList.css";
 const ContactList = ({contacts, onDelete}) => {
     return (
         <section className='contactList'>  
         {
-            contacts.map(contact => {
+           contacts && contacts.map(contact => {
                 const {name, email, id } = contact
                 return (
-                    <div key={c.id} className="item">
-                        <p>name : {contact.name}</p>
-                        <p> email : {contact.email}</p>
-                        <button onClick={()=> onDelete(c.id)}> delete</button>
+                    <div key={id} className="item">
+                        <p>name : {name}</p>
+                        <p> email : {email}</p>
+                        <button onClick={()=> onDelete(id)}> delete</button>
                     </div>
                 )
             })
