@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import AddContact from "./Add Contact/AddContact.js";
 import ContactList from "./ContactList";
 import "./App.css"
+import{Link, Route, Switch} from "react-router-dom";
 
 function App() {
   const [contacts, setContacts] = useState([]);
@@ -26,20 +27,58 @@ const deleteHandler = (id) => {
 }
 
   useEffect(()=>{
-    const savedContacts = JSON.parse(localStorage.getItem("contacts"));
+  localStorage.setItem("contacts", JSON.stringify(contacts) )
+   },[contacts]);
+
+  useEffect(()=>{
+   const savedContacts = JSON.parse(localStorage.getItem("contacts"))
     if (savedContacts) setContacts(savedContacts);
   },[]);
+  // install JSON 
   
-  useEffect(()=>{
-    localStorage.setItem("contacts", JSON.stringify(contacts) )
-  },[contacts])
+ /// *
+  useEffect(()=> {
+    const fetchContacts = async () => {
+      const {data} = await axios.get("hhtps");
+      setContacts(data)
+
+    }
+  })
+ 
+   
   return (
-    <div >
+    <main>
       <h1> Contact App </h1>
-      < AddContact addContactHandler={addContactHandler}/>
-      <ContactList  onDelete={deleteHandler}/>
-    </div>
+      <Switch>
+      
+  
+        <Route 
+           path="./user:id" 
+           exact render = {(props)=> (
+           < ContactList  onDelete={deleteHandler} 
+           {...props}/>)}/>
+
+<Route 
+          path="./add"
+           render = {(props)=>  (
+          < AddContact addContactHandler={addContactHandler} 
+          {...props} />)}
+          /> 
+      
+
+      </Switch>
+    // 
+    </main>
   );
 }
 
 export default App;
+
+
+// < AddContact addContactHandler={addContactHandler}/>
+      //<ContactList  onDelete={deleteHandler}/>
+// (props) ==== in order to see history as an prosp
+// render === be ja ineke bera elemnt o hey dorost konam miam hey update esh mikonam (145) **
+// props componnet vs props render // performance dige nemiad elkemt ro cereat kone miad update mikone
+///*
+

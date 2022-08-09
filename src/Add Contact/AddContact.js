@@ -1,7 +1,7 @@
 import React from 'react';
-import {useState} from "react";
+import {useState, } from "react";
 import "../Add Contact/AddContact.css";  
-    const AddContact = ({addContactHandler}) => {
+    const AddContact = ({addContactHandler, history}) => {
    const [contact, setContact] = useState({ name: "", email: ""});
    
    
@@ -19,6 +19,8 @@ import "../Add Contact/AddContact.css";
     e.preventDefault();
     addContactHandler(contact);
     setContact({name:"", email:""})
+    //push to homepage  {History } use as a props
+    history.push("./")
    }
 
     return (

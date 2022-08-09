@@ -1,6 +1,35 @@
+
+.ListWrapper {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    
+}
+.contactList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.ListHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+
+}
+.ListHeader button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+    background-color: #6d28d9;
+    padding: 5px 1px;
+    border-radius: 5px;
+}
+
 .item{
     background-color: #fff;
-    width: 20 rem;
+    min-width: 20rem; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +49,7 @@ padding: 5px 10px;
 border-radius: 5px;
 }
 
-item img {
+.item img {
     width: 20px;
     height: 20px;
     margin-right: 5px;
